@@ -25,7 +25,7 @@ function Footer(props) {
                         </div>
                         <div className="col_4">
                             <div className="footer-logo">
-                                <img src={logo} alt="zoomba logo"/>
+                                <img src={'assets/images/zoomba.png'} alt="zoomba logo"/>
                             </div>
                             <p>
                                 Buy and pay small-small on Zoomba Nigeria. An eCommerce marketplace dedicated to providing conveniently payment plan AKA LAYAWAY transactional model in Africa.

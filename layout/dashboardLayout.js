@@ -12,7 +12,7 @@ const urls = {
         query:""
     },
     orders: {
-        USERSORDERS,
+        url:USERSORDERS,
         query:""
     },
     shippingAddress:{
@@ -29,6 +29,7 @@ function DashboardLayout({children,page='profile'}) {
     const [data,setData] = useState([]);
     const loadData = useCallback((currentPage=1)=>{
         const{url,query=''} = urls[page]
+        console.log(url)
         get(`${url}?${query}&currentPage=${currentPage}&perPage=10`).then(({status,data})=>{
             if(status){
                 setData(data);
@@ -39,6 +40,7 @@ function DashboardLayout({children,page='profile'}) {
     },[page]);
     const {auth:{user}} = useSelector(store=>store);
     useEffect(()=>{
+        console.log('fetching')
         const search = 1;
         loadData(search);
     },[page,loadData,searchParams])

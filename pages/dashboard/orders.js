@@ -13,7 +13,10 @@ function Orders(props) {
   const {auth:{user:{role={}}}} = useSelector(s=>s);
 
   function getRequest(request){
-      if(!request && request.length === 0){
+      console.log(
+          request
+      )
+      if(!request || request.length === 0){
           return ""
       }
       const {data,_id} = request[0];
