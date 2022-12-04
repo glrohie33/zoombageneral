@@ -5,7 +5,7 @@ export const INFOALERT = 'info';
 export const ERRORALERT = 'error';
 export const WARNINGALERT = 'warning';
 
-const ZOOMBABASEURL =  getZoombaEndpoint();
+const ZOOMBABASEURL =  process.env.NEXT_PUBLIC_ZOOMBA_API_URL;
 export const REGISTRATIONENDPOINT = `${ZOOMBABASEURL}/users`;
 export const LOGINENDPOINT = `${ZOOMBABASEURL}/auth/login`;
 export const AUTHALERTNAME = 'authAlert';
@@ -29,7 +29,7 @@ export const USERDATAURL = `${ZOOMBABASEURL}/users/metadata`;
 export const SHIPPINGURL = `${ZOOMBABASEURL}/shipping`;
 export const PLATFORMID = '62d5579dca3b13dd503da897';
 export const ORDERURL = `${ZOOMBABASEURL}/orders`;
-export const RAVEKEY = process.env.REACT_APP_RAVE_KEY;
+export const RAVEKEY = process.env.NEXT_PUBLIC_RAVE_KEY;
 export const PAYMENTOPTIONSURL = `${ZOOMBABASEURL}/payment-options`;
 export const USERSPROFILE = `${ZOOMBABASEURL}/users/profile`;
 export const USERSORDERS = `${ZOOMBABASEURL}/users/orders`;
