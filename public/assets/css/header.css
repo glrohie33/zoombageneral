@@ -1,0 +1,137 @@
+header{
+    padding:10px 0px;
+    background: #fff;
+    box-shadow: -1px 0px 1px #333;
+}
+
+.menu-icon{
+    position: relative;
+}
+
+.menu-icon:hover .top-categories{
+    height: auto !important;
+    padding: 0px !important;
+}
+
+@media (min-width: 967px) {
+    .menu-icon:hover .top-categories{;
+        padding: 25px 10px !important;
+    }
+}
+
+.menu-icon svg, .cart-icon svg, .search-icon svg{
+    width:24px;
+    height: 24px;
+    position: relative;
+}
+
+.logo-cover img{
+    width: 160px;
+    height: 85px;
+    object-fit: contain;
+}
+
+.cart-icon{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cart-icon svg {
+    width:24px;
+    height:24px;
+}
+
+.icons{
+    margin:0px 5px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+
+
+.search-bar{
+    flex-grow: 1;
+    display: flex;
+    border:1px solid rgb(199,199,205);
+    border-radius: 5px;
+    margin: 0px 10px;
+    order:4;
+    width: 100%;
+}
+
+.other-menus{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.other-menus .text{
+    display: none;
+}
+
+@media (min-width: 965px) {
+    .search-bar{
+    order :unset;
+    width:unset;
+    }
+    .other-menus .text{
+        display: unset;
+
+    }
+
+    .other-menus{
+        flex-grow: unset;
+    }
+}
+
+.search-bar input{
+    border: 0px;
+    width: 100%;
+    margin:0px 5px;
+}
+
+.search-bar input:focus{
+    border: 0px !important;
+    outline: none;
+    padding:0px 10px;
+}
+
+
+.search-bar button{
+    padding: 0px 15px;
+    margin-left:0px;
+    border-radius: 2px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #686963;
+    color:#fff;
+}
+
+.menu-cover{
+    position: relative;
+}
+
+.menu{
+    position: absolute;
+    top:100%;
+    box-shadow: 0px 0px 1px #eaeaea;
+    border-radius: 3px;
+    border:1px solid #eee;
+    padding: 10px;
+    background: #fff;
+    min-width: 200px;
+    z-index: 9999;
+}
+
+
+
+.menu a{
+    padding: 5px;
+    font-size: 16px;
+    transition: 0.5s;
+    margin: 5px 0;
+}
+
+.menu a:hover{
+    background: #eeeeee;
+    transition: 1s;
+}
