@@ -1,6 +1,6 @@
 import React from 'react';
 import {formatDate, formatToString, toCurrency} from "../../utils/functions";
-import OrderItems from "./orderItems";
+import OrderItems from "../../components/orderItems";
 import Pagination from "../../components/pagination";
 import DashboardLayout from "../../layout/dashboardLayout";
 import {useSelector} from "react-redux";
@@ -13,9 +13,6 @@ function Orders(props) {
   const {auth:{user:{role={}}}} = useSelector(s=>s);
 
   function getRequest(request){
-      console.log(
-          request
-      )
       if(!request || request.length === 0){
           return ""
       }
@@ -103,5 +100,9 @@ Orders.getLayout = function getLayout(page){
             {page}
         </DashboardLayout>
     )
+}
+
+Orders.getInitialProps = ()=>{
+    return {}
 }
 export default Orders;

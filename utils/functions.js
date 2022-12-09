@@ -37,12 +37,12 @@ export function convertToForm(form,formSchema=null){
 
 function buildData(form,formData,formSchema=null ,name=""){
     const SchemaKeys = (formSchema)?Object.keys(formSchema):Object.keys(form);
-    console.log(SchemaKeys);
+
     for(let key of SchemaKeys) {
         const value = form[key];
         const fieldname = name||key ;
         if(typeof value == 'object' && Array.isArray(value)) {
-            console.log('its object and array');
+
             buildData(value,formData,null,`${fieldname}[]`);
         }else{
             formData.append(fieldname, value);
@@ -61,7 +61,7 @@ export const openMenu=(name)=>{
 
 export const closeMenu = (name)=>{
     const ele = document.querySelector(`.menu[aria-label=${name}]`);
-    console.log('readyToClose');
+
     if(ele){
         setTimeout(()=>{
             ele.classList.toggle('opened')
@@ -148,7 +148,7 @@ export function getCart(){
 
 
     }
-    console.log(cart)
+
 
     return cart;
 }
@@ -168,7 +168,6 @@ function getHeaderDetails(){
 export function getZoombaEndpoint(){
     const env = process.env.NODE_ENV;
     let url = "";
-    console.log(env);
     switch (env) {
         case 'sandbox':
             url ='api.dev.zoomba.ng'

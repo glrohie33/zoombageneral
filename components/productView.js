@@ -128,8 +128,8 @@ function ProductView({content,paymentOptions,loadPaymentOptions}) {
                                         <div className={'content'}>
                                             <ul className={'features'}>
                                                 {
-                                                    Object.keys(content.productDetails?.attributes||{}).map(attribute=>(
-                                                        <li>
+                                                    Object.keys(content.productDetails?.attributes||{}).map((attributxe,index)=>(
+                                                        <li key={index}>
                                                             <span className={'attribute-name'}>{attribute}: </span>
                                                             {content.productDetails.attributes[attribute].join(',')}
                                                         </li>

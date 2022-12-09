@@ -24,7 +24,7 @@ function ProductList({content}){
                             <div className={'side-content'}>
                                     {
                                         content.categoryChildren?.categories?.map((child)=>(
-                                            <a href={`/${child.slug}`} className={'category_list'}>{child.name}</a>
+                                            <a href={`/${child.slug}`} className={'category_list'} key={child.id}>{child.name}</a>
                                         ))
                                     }
                             </div>
@@ -71,8 +71,8 @@ function ProductList({content}){
                         <div className="content">
                             <div className="flex flex-wrap productList">
                                 {
-                                    content.productList?.products?.map(data=>(
-                                        CreateElement('productBox',{data,cols:4})
+                                    content.productList?.products?.map((data,index)=>(
+                                        CreateElement('productBox',{data,cols:4,key:index})
                                     ))
                                 }
                             </div>

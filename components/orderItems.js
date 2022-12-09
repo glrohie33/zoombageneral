@@ -1,5 +1,5 @@
 import React from 'react';
-import {toCurrency} from "../../utils/functions";
+import {toCurrency} from "../utils/functions";
 
 function OrderItems({items}) {
     return (

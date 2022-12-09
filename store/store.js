@@ -6,7 +6,7 @@ import PaymentOptions from "./reducers/paymentOptions";
 import {createWrapper} from "next-redux-wrapper";
 
 
-export const store = configureStore({
+const store = configureStore({
     reducer:{
         auth: Auth,
         cart:Cart,
@@ -18,3 +18,4 @@ export const store = configureStore({
 const makeStore = ()=>store;
 
 export const wrapper = createWrapper(makeStore);
+export default store;

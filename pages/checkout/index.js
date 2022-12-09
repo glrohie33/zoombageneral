@@ -64,7 +64,7 @@ function Cart(props) {
         }
         const grandTotal = (cartTotal + shippingPrice );
         return {cartTotal,grandTotal,shippingPrice};
-    },[cart,form.subscriptionPeriod]);
+    },[cart]);
 
     const component = {
         'shipping' :{
@@ -129,7 +129,9 @@ function Cart(props) {
             if (status){
                 dispatch(addAlert({name:AUTHALERTNAME,message:'Orders Created You will be redirected soon',status:'success'}));
                 setTimeout(()=>{
-                    router.push('/makePayment/'+order.id)
+                    router.push('/makePayment/'+order.id,'/makePayment/'+order.id,{
+                        shallow:true
+                    })
                 },2000)
             }
         }).catch(err=>{
@@ -165,7 +167,7 @@ function Cart(props) {
                             {
                                 cart.map(
                                     item=>(
-                                        <div className="cart-item-container">
+                                        <div className="cart-item-container" key={item.id}>
                                             <div className={'item-preview'}>
                                                 <div className={'image-cover'}>
                                                     <img src={item.mainImage} alt={item.name}/>
@@ -201,7 +203,7 @@ function Cart(props) {
                                 shippingData?.metaData?.length > 0&&
                                 shippingData?.metaData.map(
                                     item=>(
-                                        <div className={'inner-col shipping-address'}>
+                                        <div className={'inner-col shipping-address'} key={item.id}>
                                             <input type={'radio'}  hidden value={item.id} id={item.id} name='shippingAddressId' onClick={setData} />
                                             <label className="reactive" htmlFor={item.id}>
                                                 <div className="card">
@@ -324,6 +326,10 @@ Cart.getLayout  = function getLayout(page){
             {page}
         </AuthLayout>
     )
+}
+
+Cart.getInitialProps = ()=>{
+    return {}
 }
 
 export default Cart;

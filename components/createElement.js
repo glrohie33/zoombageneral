@@ -12,7 +12,7 @@ const elements ={
     'productView': ProductView,
     'rave':Flutterwave,
     'productList':ProductList,
-    'up':UnitedCapital
+    'ucap':UnitedCapital
 }
 
 export const CreateElement=(element,props)=>{

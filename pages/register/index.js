@@ -15,7 +15,7 @@ function Register()
         if(auth.isLogin){
             router.push(state?.path || '/');
         }
-    },[auth]);
+    },[auth,router]);
     const {referee} = router.query;
     const dispatch = useDispatch();
     const [form,setForm] = useState({
@@ -97,7 +97,7 @@ function Register()
                             </button>
                             <div className={'col no-padding-top'}>
                                 <div className={'col_12 isL'}>
-                                    <p>have an account? <a href='/login' >Sign In</a></p>
+                                    <p>have an account? <Link href='/login' >Sign In</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -114,5 +114,9 @@ Register.getLayout = function getLayout(page){
             {page}
         </DefaultLayout>
     )
+}
+
+Register.getInitialProps = ()=>{
+    return {}
 }
 export default Register;

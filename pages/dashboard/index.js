@@ -59,4 +59,7 @@ Index.getLayout = function getLayout(page){
         )
 }
 
+Index.getInitialProps = ()=>{
+    return {}
+}
 export default Index;

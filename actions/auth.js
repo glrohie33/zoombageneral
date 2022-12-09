@@ -42,7 +42,8 @@ export const get= (url,data={},headers={})=>{
     return api.get(url,{
         headers:{
             'Content-Type':'application/json',
-            'Accept':'application/json'
+            'Accept':'application/json',
+            'platform':'zoomba'
         }
     });
 }

@@ -14,4 +14,8 @@ OrderRequest.getLayout = function getLayout(page){
         </DashboardLayout>
     )
 }
+
+OrderRequest.getInitialProps = ()=>{
+    return {}
+}
 export default OrderRequest;

@@ -63,7 +63,7 @@ function Cart(props) {
                                 {
                                     cart.map(
                                         item=>(
-                                            <div className="cart-item-container">
+                                            <div className="cart-item-container" key={item.productId}>
                                                 <div className={'item-preview'}>
                                                     <div className={'image-cover'}>
                                                         <img src={item.mainImage} alt={item.name}/>
@@ -146,5 +146,8 @@ Cart.getLayout  = function getLayout(page){
     )
 }
 
+Cart.getInitialProps = ()=>{
+    return {}
+}
 
 export default Cart;

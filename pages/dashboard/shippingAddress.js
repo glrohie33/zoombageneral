@@ -46,7 +46,7 @@ function ShippingAddress(props) {
         <div className={'flex flex-wrap'}>
             {
                 metaData.map(item=>(
-                    <div className={'col_6'}>
+                    <div className={'col_6'} key={item.id}>
                         <div className="address-card">
                             <div className={'card'}>
                                 <div className="content flex flex-wrap ">
@@ -81,6 +81,10 @@ ShippingAddress.getLayout = function getLayout(page){
     return(<DashboardLayout page={'shippingAddress'}>
         {page}
     </DashboardLayout>)
+}
+
+ShippingAddress.getInitialProps = ()=>{
+    return {}
 }
 
 export default ShippingAddress;

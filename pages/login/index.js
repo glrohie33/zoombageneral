@@ -18,7 +18,7 @@ function Login(props) {
                 shallow:true
             })
         }
-    },[auth.isLogin]);
+    },[auth.isLogin,router]);
 
 
     const dispatch = useDispatch();
@@ -96,7 +96,7 @@ function Login(props) {
                                 </button>
                                 <div className={'col no-padding-top'}>
                                     <div className={'col_12 isL'}>
-                                        <p>Don't have an account? <a href='/register' >Sign Up</a></p>
+                                        <p>Don't have an account? <Link href='/register' >Sign Up</Link></p>
                                     </div>
                                 </div>
                             </div>
@@ -116,5 +116,10 @@ Login.getLayout = function getLayout(page){
         </DefaultLayout>
     )
 }
+
+Login.getInitialProps = ()=>{
+    return {}
+}
+
 
 export default Login;

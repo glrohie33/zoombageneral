@@ -5,11 +5,13 @@ import PageBanners from "../components/pageBanners";
 import {PAGEURL} from "../utils/texthelper";
 import DefaultLayout from "../layout/defaultLayout";
 import axios from "axios";
+import Head from "next/head";
 function Home({pageContent}) {
 
   return (
       <Fragment>
         <section className={'row flex flex-w'}>
+
 
           {
               pageContent['pageBanners'] &&

@@ -14,6 +14,7 @@ function Items({items,viewType,...props}) {
             {
                 items.map((item,index)=>{
                         props.data = item;
+                        props.key = item.id;
                         return (
                                 CreateElement(viewList[viewType], props)
                         )

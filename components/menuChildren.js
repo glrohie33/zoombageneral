@@ -10,7 +10,7 @@ function MenuChildren({categories}) {
                         <ul className={'inner-menu'}>
                             {
                                 category.children.map(category=>(
-                                    <a className={'parent-categories'} href={`/${category.slug}`} >{category.name}</a>
+                                    <a className={'parent-categories'} href={`/${category.slug}`} key={category.id} >{category.name}</a>
                                 ))
                             }
                         </ul>

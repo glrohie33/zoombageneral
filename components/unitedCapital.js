@@ -39,7 +39,7 @@ function UnitedCapital({order,finishOrder}) {
                 throw Error('Order not successful');
             }
 
-            finishOrder(true,false,'Request successful. Someone from united capital will reach out thanks');
+            finishOrder(true,true,'Request successful. Someone from united capital will reach out thanks');
             setModalStatus(false);
 
         }catch ({message}) {

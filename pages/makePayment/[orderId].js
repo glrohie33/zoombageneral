@@ -32,10 +32,10 @@ function MakePayment(props) {
             let status = true;
             try {
                 if (verify) {
-                    const {status:requestStatus,data} = await post(`${ORDERURL}/verifyOrder/${orderId}`, {
+                    const {status:requestStatus,data:responseData} = await post(`${ORDERURL}/verifyOrder/${orderId}`, {
                         data
                     });
-                    status = data.status;
+                    status = responseData.status;
                 }
 
                 if (status) {
@@ -77,7 +77,7 @@ function MakePayment(props) {
                             {
                                 order.orderItems?.map(
                                     item=>(
-                                        <div className="cart-item-container">
+                                        <div className="cart-item-container" key={item.id}>
                                             <div className={'item-preview'}>
                                                 <div className={'image-cover'}>
                                                     <img src={item.mainImage} alt={item.productName}/>
@@ -185,4 +185,8 @@ MakePayment.getLayout = function getLayout(page){
         </DefaultLayout>
     )
 }
+MakePayment.getInitialProps = ()=>{
+    return {}
+}
+
 export default MakePayment;

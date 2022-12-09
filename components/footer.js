@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "../public/assets/images/zoomba.png";
+import Link from "next/link";
 function Footer(props) {
     return (
         <>
@@ -10,17 +11,17 @@ function Footer(props) {
                         <div className="col_4">
                             <h3 className={'col-headers'}>About Us</h3>
                             <ul>
-                                <li><a href="/about-us">About us</a></li>
-                                <li><a href="/terms">Terms & Conditon</a></li>
-                                <li><a href="/privacy">Privacy & Policy</a></li>
+                                <li><Link href="/about-us">About us</Link></li>
+                                <li><Link href="/terms">Terms & Conditon</Link></li>
+                                <li><Link href="/privacy">Privacy & Policy</Link></li>
                             </ul>
                         </div>
                         <div className="col_4">
                             <h3 className={'col-headers'}>Quick Links</h3>
                             <ul>
-                                <li><a href="/about-kampe-page">About Zoomba</a></li>
-                                <li><a href="/contact-us">Contact Us</a></li>
-                                <li><a href="/cart">View Cart</a></li>
+                                <li><Link href="/about-kampe-page">About Zoomba</Link></li>
+                                <li><Link href="/contact-us">Contact Us</Link></li>
+                                <li><Link href="/cart">View Cart</Link></li>
                             </ul>
                         </div>
                         <div className="col_4">

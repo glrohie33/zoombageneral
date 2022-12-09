@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import {useOutletContext} from 'react-router-dom';
 import {Edit} from "@mui/icons-material";
 import {AUTHALERTNAME, BASEURL} from "../../utils/texthelper";
 import {useDispatch} from "react-redux";
@@ -9,7 +8,6 @@ function Profile(props) {
     const {data:{user={}}} = props;
     const dispatch = useDispatch();
     const refLink = useRef();
-    conso
     function copylink(){
         const input = refLink.current;
         input.select();
@@ -50,6 +48,9 @@ function Profile(props) {
         </div>
     </div>
 );
+}
+Profile.getInitialProps = ()=>{
+    return {}
 }
 
 export default Profile;
