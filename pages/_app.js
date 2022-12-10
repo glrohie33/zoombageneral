@@ -12,9 +12,6 @@ import {setCartData} from "../store/reducers/cart";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
-    <Script>
-
-    </Script>
   const dispatch = useDispatch();
   useEffect(()=>{
      dispatch(setUserData());
