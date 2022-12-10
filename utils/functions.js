@@ -1,5 +1,6 @@
 import {v4 as uuidv4} from "uuid";
 import {CARTTYPE, COOKIE_EXPIRE, ZOOMBAFRONTENDBASEURL} from "./texthelper";
+import React from "react";
 export const generateId = ()=>{
     return uuidv4();
 }
@@ -182,4 +183,38 @@ export function getZoombaEndpoint(){
     console.log(url);
     return url;
 
+}
+
+
+export function loadMeta({
+                             keywords='pay small small,shopping platform in nigeria,online shop,buy and pay later,buy phone and pay small small,buy laptop online and pay small small',
+                             title='1st pay small small online shopping platform in Nigeria',
+                             type ='page',
+                             url= ``,
+                             site_name='Zoomba Nigeria',
+                             image=`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/zoomba.png`,
+                            description = 'Buy and pay small-small on Zoomba Nigeria. An eCommerce marketplace dedicated to providing conveniently payment plan AKA LAYAWAY transactional model in Africa.'
+            }){
+   return (<>
+       <title>{title}</title>
+        <meta name={'keywords'} content={keywords}/>
+        <meta name={'title'} content={title}/>
+        <meta name={'type'} content={type}/>
+        <meta name={'url'} content={`${process.env.NEXT_PUBLIC_BASE_URL}${url}`}/>
+        <meta name={'site_name'} content={site_name}/>
+        <meta name={'image'} content={image}/>
+        <meta name={'description'} content={description}/>
+        <meta itemProp={'image'} content={image}/>
+        <meta itemProp={'name'} content={site_name}/>
+        <meta itemProp={'description'} content={description}/>
+       <meta name="twitter:card" content="summary_large_image"/>
+       <meta name="twitter:site" content={site_name}/>
+       <meta name="twitter:title" content={title}/>
+       <meta name="twitter:description" content={description}/>
+       <meta name="twitter:image:src" content={image}/>
+       <meta property="og:type" content={type}/>
+       <meta property="og:url" content={url}/>
+       <meta property="og:site_name" content={site_name}/>
+       <meta property="og:description" content={description}/>
+    </>);
 }

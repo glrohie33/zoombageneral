@@ -7,49 +7,42 @@ import {Parser} from "html-to-react";
 import DefaultLayout from "../layout/defaultLayout";
 import Head from "next/head";
 import axios from "axios";
+import {loadMeta} from "../utils/functions";
 const htmlToReact = new Parser();
 
-function Page({content}) {
+function Page({content,url}) {
 
     const headers = useMemo(()=>{
 
-        let {title,keywords,description,image} = DEFAULTHEADERS;
-        const url = "";
+        let {title,keywords,description,image,type} = DEFAULTHEADERS;
+        let metaUrl = url
         if(content.view === 'productView'){
             const {productDetails:{tags,description:productDescription,name,mainImage}} = content;
             keywords = tags.join(',');
             description = productDescription.replace(/(?:\\[rn])+/g, "");
             title= `Zoomba Kampe || ${name}`;
             image= mainImage;
+            type='product'
+        }
+
+        if(content.view === 'productList'){
+            const {mainCategory} = content;
+             title = mainCategory.title;
+             keywords = mainCategory.tags.join(',');
+             metaUrl = `/${mainCategory.slug}`
         }
 
         return(<Head>
-                <title>{title}</title>
-                <meta name='description' content={description}/>
-                <meta name={'keywords'} content={keywords}/>
-                <meta name={'site_name'} content={'Zoomba Nigeria'}/>
-                <meta name={'image'} content={image}/>
-                <meta name={'title'} content={title}/>
-                <meta name={'url'} content={url}></meta>
-                {/*schema markup for google+*/}
-                <meta itemProp='description' content={description}/>
-                <meta itemProp={'keywords'} content={keywords}/>
-                <meta itemProp={'site_name'} content={'Zoomba Nigeria'}/>
-                <meta itemProp={'image'} content={image}/>
-                {/*twitter card */}
-                <meta name={'twitter:card'} content={'summary_large_image'}/>
-                <meta name={'twitter:title'} content={title}/>
-                <meta name={'twitter:description'} content={'Zoomba Nigeria'}/>
-                <meta name={'twitter:image:src'} content={image}/>
-
-                {/*    open Graph*/}
-                <meta property='og:description' content={description}/>
-                <meta property={'og:keywords'} content={keywords}/>
-                <meta property={'og:site_name'} content={'Zoomba Kampe'}/>
-                <meta property={'og:image'} content={image}/>
-                <meta property={'og:title'} content={title}/>
-                <meta property={'og:url'} content={url}/>
-
+                {
+                    loadMeta({
+                        keywords,
+                        title,
+                        description,
+                        url:metaUrl,
+                        image,
+                        type
+                    })
+                }
             </Head>
         )
 
@@ -57,6 +50,9 @@ function Page({content}) {
 
     return (
         <>
+            {
+                headers
+            }
             <section className={'row'}>
             {
                 content.contents &&
@@ -85,6 +81,7 @@ function Page({content}) {
 export async function getServerSideProps({req,query,path,params,resolvedUrl}){
     let content = {};
     try {
+
         const url=`${PAGEURL}${resolvedUrl}`
         const {status,data} = await axios.get(url,{
             headers:{
@@ -92,6 +89,7 @@ export async function getServerSideProps({req,query,path,params,resolvedUrl}){
             }
         });
         if(status){
+            console.log(data);
             content = data
         }
 
@@ -102,7 +100,8 @@ export async function getServerSideProps({req,query,path,params,resolvedUrl}){
 
     return {
         props:{
-            content
+            content,
+            url:resolvedUrl
         }
     }
 

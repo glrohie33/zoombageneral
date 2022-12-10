@@ -4,10 +4,18 @@ import PageContent from "../components/pageContent";
 import PageBanners from "../components/pageBanners";
 import {PAGEURL} from "../utils/texthelper";
 import DefaultLayout from "../layout/defaultLayout";
+import Head from "next/head";
+import {loadMeta} from "../utils/functions";
 function Home({pageContent}) {
 
     return (
         <Fragment>
+            <Head>
+
+                {
+                    loadMeta({})
+                }
+            </Head>
             <section className={'row flex flex-w'}>
 
                 {
