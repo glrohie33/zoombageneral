@@ -74,6 +74,23 @@ function Header({logoutUser}) {
           ga('send', 'pageview');
           `}
             </Script>
+            <Script id={"tawkto"} strategy={"afterInteractive"}>
+                {
+                    `
+                    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                    (function(){
+                    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                    s1.async=true;
+                    s1.src='https://embed.tawk.to/5e510a4a298c395d1ce93da9/default';
+                    s1.charset='UTF-8';
+                    s1.setAttribute('crossorigin','*');
+                    s0.parentNode.insertBefore(s1,s0);
+                    })();
+                    `
+                }
+            </Script>
+            <Script id={"whatsapp"} strategy={"afterInteractive"} src={"https://s.widgetwhats.com/wwwa.js"} data-wwwa="15630"/>
+
             <header>
                 <section className={'row'}>
                         <div className={'menu-icon icons'}>
