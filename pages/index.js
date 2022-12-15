@@ -6,10 +6,18 @@ import {PAGEURL} from "../utils/texthelper";
 import DefaultLayout from "../layout/defaultLayout";
 import axios from "axios";
 import Head from "next/head";
+import {loadMeta} from "../utils/functions";
 function Home({pageContent}) {
 
   return (
       <Fragment>
+
+        <Head>
+
+          {
+            loadMeta({})
+          }
+        </Head>
         <section className={'row flex flex-w'}>
 
 

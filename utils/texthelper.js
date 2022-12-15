@@ -43,7 +43,9 @@ export const DEFAULTHEADERS = {
     title:"1st pay small small online shopping platform in Nigeria || Zoomba Kampe",
     description:"Buy and pay small-small on Zoomba Nigeria. An eCommerce marketplace dedicated to providing conveniently payment plan AKA LAYAWAY transactional model in Africa.",
     keywords:"pay small small,shopping platform in nigeria,online shop,buy and pay later,buy phone and pay small small,buy laptop online and pay small small",
-    image:logo
+    image:`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/zoomba.png`,
+    site_name:'zoomba nigeria',
+    type:'page'
 };
 export const FINANCEORDERURL = 'orders/financeorder';
 export const ZILLAKEY = process.env.NEXT_PUBLIC_ZILLA_KEY;
