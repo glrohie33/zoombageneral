@@ -23,28 +23,8 @@ function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page)
 
-  return getLayout(<>
-          <Script id={'google-analytic'} strategy={"afterInteractive"}>
-              {`
-          (function(i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {
-          (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-          a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0];
-          a.async = 1;
-          a.src = g;
-          m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-          ga('create', "UA-117985671-1", 'auto');
-          ga('send', 'pageview');
-          `}
-          </Script>
-
-
-      <Component {...pageProps} />
-  </> )
+    return getLayout(<Component {...pageProps} >
+    </Component>)
 }
 
 export default wrapper.withRedux(MyApp)

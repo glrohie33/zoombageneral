@@ -46,3 +46,4 @@ export const DEFAULTHEADERS = {
     image:logo
 };
 export const FINANCEORDERURL = 'orders/financeorder';
+export const ZILLAKEY = process.env.NEXT_PUBLIC_ZILLA_KEY;

@@ -15,9 +15,13 @@ function AuthLayout({children}) {
 
     return (
         <div>
-            <DefaultLayout>
-                {children}
-            </DefaultLayout>
+            {
+
+                <DefaultLayout>
+                    {children}
+                </DefaultLayout>
+            }
+
         </div>
     );
 }

@@ -25,11 +25,10 @@ const urls = {
     }
 }
 function DashboardLayout({children,page='profile'}) {
-    const searchParams  = "";
-    const [data,setData] = useState([]);
+    console.log("this is the layout");
+    const [data,setData] = useState({data:{},loadData:null});
     const loadData = useCallback((currentPage=1)=>{
         const{url,query=''} = urls[page]
-        console.log(url)
         get(`${url}?${query}&currentPage=${currentPage}&perPage=10`).then(({status,data})=>{
             if(status){
                 setData(data);
@@ -43,11 +42,11 @@ function DashboardLayout({children,page='profile'}) {
         console.log('fetching')
         const search = 1;
         loadData(search);
-    },[page,loadData,searchParams])
+    },[page,loadData])
 
 
     function childrenWithProps(){
-
+        console.log({data});
         const newChild = React.cloneElement(children,{data,loadData});
         return <>{newChild}</>
     }

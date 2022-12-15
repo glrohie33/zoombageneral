@@ -11,9 +11,10 @@ import {useRouter} from "next/router";
 import DefaultLayout from "../../layout/defaultLayout";
 import Page from "../[page]";
 import AuthLayout from "../../layout/AuthLayout";
+import Script from "next/script";
 
 function Cart(props) {
-    const {firstname,lastname} = useSelector(s=>s.auth.user);
+    const {firstname="",lastname=""} = useSelector(s=>s.auth);
     const initialData ={
         firstName:firstname,
         lastName:lastname,
@@ -158,7 +159,9 @@ function Cart(props) {
     },[form]);
 
     return (
-        <section className={'row checkout cart-view'}>
+        <>
+            <Script strategy={"beforeInteractive"} src={'https://unpkg.com/carbon-zero-widget'}/>
+            <section className={'row checkout cart-view'}>
             <div className={'col flex flex-wrap'}>
                 <div className={'col_8'}>
                     <div className="card">
@@ -259,6 +262,16 @@ function Cart(props) {
                                         <input type={'radio'} name={'paymentGateway'} value={'ucap'} onClick={setData}/> United Capital
                                     </label>
                                 </li>
+                                <li>
+                                    <label>
+                                        <input type={'radio'} name={'paymentGateway'} value={'carbon'} onClick={setData}/> Carbon Zero
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type={'radio'} name={'paymentGateway'} value={'zilla'} onClick={setData}/> Zilla
+                                    </label>
+                                </li>
 
                             </ul>
                         </div>
@@ -317,6 +330,8 @@ function Cart(props) {
                 </div>
             </Modal>
         </section>
+        </>
+
     );
 }
 

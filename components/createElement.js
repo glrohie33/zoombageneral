@@ -5,6 +5,8 @@ import ProductView from "./productView";
 import Flutterwave from "./flutterwave";
 import ProductList from "./productList";
 import UnitedCapital from "./unitedCapital";
+import CarbonZero from "./carbonZero";
+import Zilla from "./zilla";
 
 const elements ={
     'productBox':ProductBox,
@@ -12,7 +14,9 @@ const elements ={
     'productView': ProductView,
     'rave':Flutterwave,
     'productList':ProductList,
-    'ucap':UnitedCapital
+    'ucap':UnitedCapital,
+    'carbon':CarbonZero,
+    'zilla':Zilla
 }
 
 export const CreateElement=(element,props)=>{

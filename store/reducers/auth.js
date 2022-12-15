@@ -20,7 +20,7 @@ const auth = createSlice({
         setUserData:(state)=>{
             const storageUser = window.localStorage.getItem('ZoombaUser');
             let isLogin = Boolean(storageUser);
-            let userData = (isLogin)?JSON.parse(storageUser):[];
+            let userData = (isLogin)?JSON.parse(storageUser):{};
             state.isLogin = isLogin;
             state.user = userData;
         }

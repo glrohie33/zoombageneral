@@ -11,6 +11,7 @@ import {TOPCATEGORIES} from "../utils/texthelper";
 import TopCategories from "./topCategories";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import Script from "next/script";
 function Header({logoutUser}) {
     const cart = useSelector(s=>s.cart.items.products)
     const auth = useSelector(store=>store.auth);
@@ -56,6 +57,23 @@ function Header({logoutUser}) {
     },[])
     return (
         <Fragment>
+            <Script id={'google-analytic'} strategy={"afterInteractive"}>
+                {`
+          (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', "UA-117985671-1", 'auto');
+          ga('send', 'pageview');
+          `}
+            </Script>
             <header>
                 <section className={'row'}>
                         <div className={'menu-icon icons'}>
@@ -64,7 +82,7 @@ function Header({logoutUser}) {
                         </div>
                         <div className={'logo-cover'}>
                             <Link href="/">
-                                <img src={'assets/images/zoomba.png'} alt="zoomba logo"/>
+                                <img src={'/assets/images/zoomba.png'} alt="zoomba logo"/>
                             </Link>
                         </div>
                         <div className={'search-bar'}>
